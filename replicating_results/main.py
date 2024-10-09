@@ -11,7 +11,7 @@ def Run(r,name):
    N = int(rho*L**2 )
    v_0=0.1
    iterations = 10000
-   eta = 11
+   eta=0.5
    alpha=1
    beta=1
    
