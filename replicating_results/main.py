@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from order import *
+from animate import *
 
 #Function that runs the mofidided vicsek and creates plots and 
 def Run(r,name):
@@ -28,11 +29,11 @@ def Run(r,name):
    plt.savefig(name+"_plot.png")
    plt.close()
    
-   #Making quiver plots for at 100
+   #Making quiver plots for at 50
    fig, ax= plt.subplots(figsize=(6,6))
-   qv = ax.quiver(pos[100][:,0], pos[100][:,1], np.cos(theta[100]), np.sin(theta[100]), s[100], clim=[0, 1])
+   qv = ax.quiver(pos[50][:,0], pos[50][:,1], np.cos(theta[50]), np.sin(theta[50]), s[50], clim=[0, 1])
    plt.show()
-   plt.savefig(name+"_quiver_step_100.png")
+   plt.savefig(name+"_quiver_step_50.png")
    plt.close()
     
    #Making quiver plots for at last step
@@ -42,6 +43,9 @@ def Run(r,name):
    plt.savefig(name+"_quiver_last_step.png")
    plt.close()
    
+   #Making the animation
+   anim=animate(pos,theta,s,1000)
+   anim.save(name+"_animate.gif")
    
 
 print("a Has started")
