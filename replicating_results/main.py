@@ -32,6 +32,8 @@ def Run(r,name):
    #Making quiver plots for at 50
    fig, ax= plt.subplots(figsize=(6,6))
    qv = ax.quiver(pos[50][:,0], pos[50][:,1], np.cos(theta[50]), np.sin(theta[50]), s[50], clim=[0, 1])
+   ax.set_xlabel('x')
+   ax.set_ylabel('y')
    plt.show()
    plt.savefig(name+"_quiver_step_50.png")
    plt.close()
@@ -39,6 +41,8 @@ def Run(r,name):
    #Making quiver plots for at last step
    fig, ax= plt.subplots(figsize=(6,6))
    qv = ax.quiver(pos[-1][:,0], pos[-1][:,1], np.cos(theta[-1]), np.sin(theta[-1]), s[-1], clim=[0, 1])
+   ax.set_xlabel('x')
+   ax.set_ylabel('y')
    plt.show()
    plt.savefig(name+"_quiver_last_step.png")
    plt.close()
@@ -46,7 +50,7 @@ def Run(r,name):
    #Making the animation
    anim=animate(pos,theta,s,1000)
    anim.save(name+"_animate.gif")
-   
+   plt.close()
 
 print("a Has started")
 Run(0.2,"a")
