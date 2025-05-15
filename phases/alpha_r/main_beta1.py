@@ -1,3 +1,20 @@
+import sys
+import os
+
+#This code is to enable src accses 
+
+# Get the absolute path to the 'src' directory
+folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+src_path = os.path.join(folder, 'src')
+
+# Add the 'src' directory to sys.path
+if src_path not in sys.path:
+    sys.path.append(src_path)
+
+
+
+
+
 from  Vicsek_modified_conditional  import *
 import numpy as np
 
